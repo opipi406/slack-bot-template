@@ -13,10 +13,10 @@ export class SlackBotCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
-    // const scheduleBotLayer = new lambda.LayerVersion(this, 'scheduleBotLayer', {
-    //   code: lambda.AssetCode.fromAsset('lambda_layer'),
-    //   compatibleRuntimes: [lambda.Runtime.PYTHON_3_10],
-    // })
+    const slackBotLayer = new lambda.LayerVersion(this, 'slackBotLayer', {
+      code: lambda.AssetCode.fromAsset('lambda_layer'),
+      compatibleRuntimes: [lambda.Runtime.PYTHON_3_12],
+    })
 
     const slackBotFunction = new lambda.Function(
       this,
@@ -25,6 +25,7 @@ export class SlackBotCdkStack extends cdk.Stack {
         runtime: lambda.Runtime.PYTHON_3_12,
         handler: 'app.handler',
         code: lambda.Code.fromAsset(path.join(__dirname, '../../slack-bot-impl')),
+        layers: [slackBotLayer],
         timeout: cdk.Duration.seconds(30),
         environment: {
           SLACK_SIGNING_SECRET: 'example-signing-secret',
