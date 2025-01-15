@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "slack-bot-impl"
+version = "0.1.0"
+description = ""
+authors = ["opipi406 <opipi.work@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+boto3 = "^1.35.99"
+slack-bolt = "^1.22.0"
+pydantic = "^2.10.5"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.9.1"
+mypy = "^1.14.1"
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "D1",    # undocumented
+  "D203",  # one blank line before class
+  "D213",  # multi-line summary second line
+  "TD001", # invalid todo tag
+  "TD002", # missing todo author
+  "TD003", # missing todo link
+  "PD011", # pandas use of dot values
+  "INP001",
+]
+unfixable = [
+  "F401", # unused import
+  "F841", # unused variable
+]
+
+[tool.ruff.isort]
+combine-as-imports = true
+extra-standard-library = ["typing"]
+force-sort-within-sections = true
+forced-separate = ["tests"]
+lines-between-types = 1
+relative-imports-order = "closest-to-furthest"
+split-on-trailing-comma = true

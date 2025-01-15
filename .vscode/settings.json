@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+  },
+  "eslint.enable": true,
+  "eslint.workingDirectories": [
+    "./slack-bot-cdk"
+  ],
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    }
+  },
+  "ruff.lint.args": [
+    "--config=slack-bot-impl/pyproject.toml"
+  ],
+  "ruff.format.args": [
+    "--config=slack-bot-impl/pyproject.toml"
+  ]
+}
