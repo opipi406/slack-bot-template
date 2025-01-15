@@ -4,5 +4,7 @@ export ENVIRONMENT=develop
 export PROJECT_NAME=sandbox
 
 # AWS Account Settings
-export CDK_DEFAULT_ACCOUNT=111111111111
-export CDK_DEFAULT_REGION=ap-notheast-1
+export AWS_DEFAULT_REGION=ap-notheast-1
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+export ACCOUNT_ID="111111111111"
